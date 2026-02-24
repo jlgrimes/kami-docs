@@ -118,7 +118,7 @@ ${meta.features.map((f) => `- ${f}`).join('\n')}
 ## Implementation example
 
 \`\`\`tsx
-import { ${name} } from '@jlgrimes/kami';
+import { ${name} } from '@kamiui/kami';
 
 ${meta.example}
 \`\`\`
