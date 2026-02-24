@@ -5,10 +5,22 @@ description: Navbar component from the Kami UI library.
 
 import { ComponentPreview } from '@/components/component-preview';
 
-## Usage
+## What this is used for
+
+Top navigation with title/back actions on mobile pages.
+
+## Mobile-focused features
+
+- compact mobile header
+- space for leading actions
+- consistent page chrome
+
+## Implementation example
 
 ```tsx
 import { Navbar } from '@jlgrimes/kami';
+
+<Navbar title="Profile" onBack={goBack} />
 ```
 
 ## Preview

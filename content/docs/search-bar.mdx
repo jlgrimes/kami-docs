@@ -5,10 +5,22 @@ description: SearchBar component from the Kami UI library.
 
 import { ComponentPreview } from '@/components/component-preview';
 
-## Usage
+## What this is used for
+
+Top-of-screen search in list and content views.
+
+## Mobile-focused features
+
+- mobile search UX
+- cancel flow support
+- optimized for thumb typing
+
+## Implementation example
 
 ```tsx
 import { SearchBar } from '@jlgrimes/kami';
+
+<SearchBar value={query} onChange={setQuery} placeholder="Search lessons…" />
 ```
 
 ## Preview

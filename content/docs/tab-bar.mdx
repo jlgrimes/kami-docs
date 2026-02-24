@@ -5,10 +5,22 @@ description: TabBar component from the Kami UI library.
 
 import { ComponentPreview } from '@/components/component-preview';
 
-## Usage
+## What this is used for
+
+Primary app-level navigation in mobile shells.
+
+## Mobile-focused features
+
+- thumb-friendly layout
+- clear active state
+- supports persistent navigation
+
+## Implementation example
 
 ```tsx
 import { TabBar } from '@jlgrimes/kami';
+
+<TabBar tabs={tabs} activeKey={activeTab} onChange={setActiveTab} />
 ```
 
 ## Preview

@@ -5,10 +5,22 @@ description: BottomSheet component from the Kami UI library.
 
 import { ComponentPreview } from '@/components/component-preview';
 
-## Usage
+## What this is used for
+
+Contextual actions and content without leaving current screen.
+
+## Mobile-focused features
+
+- mobile-native interaction pattern
+- focuses user attention
+- great for actions/forms on small screens
+
+## Implementation example
 
 ```tsx
 import { BottomSheet } from '@jlgrimes/kami';
+
+<BottomSheet open={open} onClose={() => setOpen(false)} title="Filters">...</BottomSheet>
 ```
 
 ## Preview

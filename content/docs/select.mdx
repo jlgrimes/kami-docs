@@ -5,10 +5,22 @@ description: Select component from the Kami UI library.
 
 import { ComponentPreview } from '@/components/component-preview';
 
-## Usage
+## What this is used for
+
+Choosing one option from a mobile-friendly picker UI.
+
+## Mobile-focused features
+
+- works well with touch
+- clear value display
+- usable in forms and settings
+
+## Implementation example
 
 ```tsx
 import { Select } from '@jlgrimes/kami';
+
+<Select value={language} onChange={setLanguage} options={languageOptions} />
 ```
 
 ## Preview

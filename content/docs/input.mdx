@@ -5,10 +5,22 @@ description: Input component from the Kami UI library.
 
 import { ComponentPreview } from '@/components/component-preview';
 
-## Usage
+## What this is used for
+
+Collecting text on forms and onboarding screens.
+
+## Mobile-focused features
+
+- mobile keyboard friendly
+- supports labels + helper/error text
+- works in tight mobile layouts
+
+## Implementation example
 
 ```tsx
 import { Input } from '@jlgrimes/kami';
+
+<Input label="Email" placeholder="you@domain.com" value={email} onChange={setEmail} />
 ```
 
 ## Preview

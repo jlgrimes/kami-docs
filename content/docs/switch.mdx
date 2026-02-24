@@ -5,10 +5,22 @@ description: Switch component from the Kami UI library.
 
 import { ComponentPreview } from '@/components/component-preview';
 
-## Usage
+## What this is used for
+
+Boolean settings and quick toggles.
+
+## Mobile-focused features
+
+- iOS-style visual language
+- clear on/off affordance
+- good for dense mobile settings pages
+
+## Implementation example
 
 ```tsx
 import { Switch } from '@jlgrimes/kami';
+
+<Switch checked={notifications} onChange={setNotifications} label="Notifications" />
 ```
 
 ## Preview
