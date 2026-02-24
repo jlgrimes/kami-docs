@@ -8,11 +8,12 @@ export function ComponentPreview({ name }: { name: string }) {
   if (lower.includes('switch')) return <div style={pill}><div style={dot} /></div>;
   if (lower.includes('badge') || lower.includes('chip')) return <span style={badge}>{name}</span>;
   if (lower.includes('progress')) return <div style={bar}><div style={{ ...fill, width: '45%' }} /></div>;
+  if (lower.includes('activity')) return <div style={spinner} />;
 
   return (
     <div style={card}>
       <strong>{name}</strong>
-      <div style={{ opacity: 0.7, marginTop: 6 }}>Preview scaffold (docs mode)</div>
+      <div style={{ opacity: 0.7, marginTop: 6 }}>Preview coming soon</div>
     </div>
   );
 }
@@ -25,3 +26,11 @@ const bar: React.CSSProperties = { background: '#e5e7eb', borderRadius: 9999, he
 const fill: React.CSSProperties = { background: '#111827', height: '100%' };
 const pill: React.CSSProperties = { width: 44, height: 24, borderRadius: 9999, background: '#22c55e', position: 'relative' };
 const dot: React.CSSProperties = { width: 20, height: 20, borderRadius: '50%', background: 'white', position: 'absolute', right: 2, top: 2 };
+const spinner: React.CSSProperties = {
+  width: 24,
+  height: 24,
+  borderRadius: '50%',
+  border: '3px solid #e5e7eb',
+  borderTopColor: '#111827',
+  animation: 'spin 1s linear infinite',
+};
