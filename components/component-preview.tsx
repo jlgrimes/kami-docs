@@ -17,6 +17,14 @@ const presets: Record<string, Record<string, unknown>> = {
       { value: 'en', label: 'English' },
     ],
   },
+  TabBar: {
+    activeKey: 'home',
+    onChange: () => {},
+    tabs: [
+      { key: 'home', label: 'Home' },
+      { key: 'search', label: 'Search' },
+    ],
+  },
   Badge: { children: 'Beta' },
   Chip: { label: 'New' },
   Card: { children: 'Card content' },
@@ -29,9 +37,28 @@ function Fallback({ name }: { name: string }) {
   return (
     <div style={{ border: '1px solid #e5e7eb', borderRadius: 12, padding: 16 }}>
       <strong>{name}</strong>
-      <div style={{ opacity: 0.7, marginTop: 6 }}>Preview coming soon</div>
+      <div style={{ opacity: 0.7, marginTop: 6 }}>Preview unavailable for this component</div>
     </div>
   );
+}
+
+class PreviewErrorBoundary extends React.Component<{ name: string; children: React.ReactNode }, { broken: boolean }> {
+  state = { broken: false };
+
+  static getDerivedStateFromError() {
+    return { broken: true };
+  }
+
+  componentDidUpdate(prevProps: { name: string }) {
+    if (prevProps.name !== this.props.name && this.state.broken) {
+      this.setState({ broken: false });
+    }
+  }
+
+  render() {
+    if (this.state.broken) return <Fallback name={this.props.name} />;
+    return this.props.children;
+  }
 }
 
 export function ComponentPreview({ name }: { name: string }) {
@@ -48,13 +75,11 @@ export function ComponentPreview({ name }: { name: string }) {
   const Component = mod[name];
   if (!Component) return <Fallback name={name} />;
 
-  try {
-    return (
+  return (
+    <PreviewErrorBoundary name={name}>
       <div style={{ border: '1px solid #e5e7eb', borderRadius: 12, padding: 16 }}>
         <Component {...(presets[name] ?? {})} />
       </div>
-    );
-  } catch {
-    return <Fallback name={name} />;
-  }
+    </PreviewErrorBoundary>
+  );
 }
